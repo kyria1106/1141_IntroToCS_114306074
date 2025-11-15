@@ -67,7 +67,7 @@
 		display: block;
 		text-align: left;
 	}
-	
+
 	.dropdown:hover .dropdown-content {
 		display: block;
 	}
@@ -80,7 +80,7 @@
 
 
 @media print {
-	
+
 	.navbar, .header-banner {
 		display: none;
 	}
