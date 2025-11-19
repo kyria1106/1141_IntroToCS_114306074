@@ -1,0 +1,195 @@
+body {
+    background-color: #C7D5E7;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: 1000px;
+    background-color: white;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.left-panel {
+    width: 32%;
+    background-color: #7e97ad;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.right-panel {
+    width: 68%;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.photo-panel {
+    width: 100%;
+}
+
+.photo-panel img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-content {
+    padding: 20px;
+    width: 85%;
+}
+
+.text-content h1 {
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.text-content .subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.info-section {
+    margin-bottom: 30px;
+    border-top: 1px solid rgba(255,255,255,0.5);
+    padding-top: 10px;
+}
+
+.info-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.info-section p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+
+.school-logo img {
+    width: 100px;
+    margin-top: 20px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    color: #333;
+    font-size: 22px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.timeline-item .year {
+    width: 120px;
+    font-weight: bold;
+    color: #6c9bd8;
+}
+
+.timeline-item .description {
+    flex: 1;
+    color: #555;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #eee;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.hw-lab-container {
+    display: flex;
+    gap: 20px;
+}
+
+.hw-column, .lab-column {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hw-lab-container h3 {
+    margin-top: 0;
+    color: #444;
+}
+
+.hw-lab-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.hw-lab-container li {
+    margin-bottom: 10px;
+}
+
+.hw-lab-container a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+}
+
+.hw-lab-container a:hover {
+    text-decoration: underline;
+    color: #003366;
+}
+
+.music-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.music-item {
+    width: 22%;
+    text-align: center;
+}
+
+.music-item img {
+    width: 100%;
+    max-width: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+}
+
+.music-item img:hover {
+    transform: scale(1.1);
+}
+
+.music-item p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+.music-note {
+    margin-top: 20px;
+    color: #777;
+    font-style: italic;
+    font-size: 14px;
+}
