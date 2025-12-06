@@ -159,7 +159,7 @@
             const userGuess = parseInt(guessInput.value);
 
             if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-                message.textContent = '請輸入 1 到 100 之間的一個有效數字！';
+                message.textContent = '請輸入 1 到 100 之間的一個數字！';
                 guessInput.value = '';
                 return;
             }
