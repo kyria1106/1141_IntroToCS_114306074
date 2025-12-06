@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess Number Game</title>
+    <title>Guess Number Game - 114306074</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -73,7 +73,7 @@
             margin-top: 20px;
             font-size: 1.2em;
             font-weight: bold;
-            color: #d9534f;
+            color: #333;
             min-height: 25px;
         }
 
@@ -93,38 +93,38 @@
         .image-container {
             margin-top: 20px;
         }
-        .game-image {
+        #gameImage {
             width: 100%;
             max-width: 300px;
             height: auto;
             border-radius: 8px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Guess The Number (1-100)</h1>
-        <p>Input a number between 1 and 100.</p>
+        <h1>猜數字遊戲 (1~100)</h1>
+        <p>我已經選了一個 1 到 100 之間的數字。請輸入您的猜測：</p>
 
         <div>
-            <input type="number" id="guessInput" min="1" max="100">
-            <button id="guessButton">Guess</button>
+            <input type="number" id="guessInput" min="1" max="100" placeholder="輸入數字">
+            <button id="guessButton">猜！</button>
         </div>
 
         <p id="message"></p>
 
-        <button id="newGameButton" style="display: none;">New Game</button>
+        <button id="newGameButton" style="display: none;">開始新遊戲</button>
         
         <div id="history">
-            <h2>History:</h2>
-            <div id="guessLog">No guesses yet.</div>
+            <h2>猜測紀錄:</h2>
+            <div id="guessLog">目前沒有紀錄。</div>
         </div>
-        
     </div>
     
     <div class="image-container">
-        <img src="images/game_start.jpg" alt="Game Image" class="game-image">
+        <img id="gameImage" src="images/wrong.jpg" alt="遊戲狀態圖片">
     </div>
 
     <script>
@@ -138,6 +138,7 @@
         const message = document.getElementById('message');
         const guessLog = document.getElementById('guessLog');
         const newGameButton = document.getElementById('newGameButton');
+        const gameImage = document.getElementById('gameImage');
 
         function initGame() {
             secretNumber = Math.floor(Math.random() * 100) + 1; 
@@ -145,25 +146,26 @@
             low = 1;
             high = 100;
             
-            message.textContent = `Please guess a number between ${low} and ${high}.`;
+            message.textContent = `請猜一個 ${low} 到 ${high} 之間的數字。`;
             guessLog.innerHTML = '';
             guessInput.value = '';
             guessInput.disabled = false;
             guessButton.disabled = false;
             newGameButton.style.display = 'none';
+            gameImage.src = 'images/wrong.jpg'; 
         }
 
         function checkGuess() {
             const userGuess = parseInt(guessInput.value);
 
             if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-                message.textContent = 'Invalid input! Please enter a number between 1 and 100.';
+                message.textContent = '請輸入 1 到 100 之間的一個有效數字！';
                 guessInput.value = '';
                 return;
             }
             
             if (userGuess < low || userGuess > high) {
-                 message.textContent = `Out of range! Please guess between ${low} and ${high}.`;
+                 message.textContent = `您的猜測必須在目前的範圍 ${low} 到 ${high} 之間！`;
                  return;
             }
 
@@ -174,8 +176,9 @@
             newLogItem.classList.add('history-item');
             
             if (userGuess === secretNumber) {
-                message.textContent = `Congratulations! You got it in ${guesses} tries. The number was ${secretNumber}.`;
-                newLogItem.textContent = `Guess ${guesses}: ${userGuess} (Correct!)`;
+                message.textContent = `恭喜！您在 ${guesses} 次內猜對了數字 ${secretNumber}！`;
+                newLogItem.textContent = `第 ${guesses} 次猜測: ${userGuess} (恭喜！)`;
+                gameImage.src = 'images/correct.jpg'; 
                 
                 guessInput.disabled = true;
                 guessButton.disabled = true;
@@ -183,13 +186,15 @@
 
             } else if (userGuess < secretNumber) {
                 low = userGuess + 1;
-                message.textContent = `Too Low! Guess between ${low} and ${high}.`;
-                newLogItem.textContent = `Guess ${guesses}: ${userGuess} (Too Low)`;
+                message.textContent = `太低了！請猜 ${low} 到 ${high} 之間的數字。`;
+                newLogItem.textContent = `第 ${guesses} 次猜測: ${userGuess} (太小)`;
+                gameImage.src = 'images/wrong.jpg'; 
 
             } else {
                 high = userGuess - 1;
-                message.textContent = `Too High! Guess between ${low} and ${high}.`;
-                newLogItem.textContent = `Guess ${guesses}: ${userGuess} (Too High)`;
+                message.textContent = `太高了！請猜 ${low} 到 ${high} 之間的數字。`;
+                newLogItem.textContent = `第 ${guesses} 次猜測: ${userGuess} (太大)`;
+                gameImage.src = 'images/wrong.jpg'; 
             }
             
             if (guesses === 1) {
