@@ -124,7 +124,7 @@
     </div>
     
     <div class="image-container">
-        <img id="gameImage" src="images/wrong.jpg" alt="遊戲狀態圖片">
+        <img id="gameImage" src="" alt="遊戲狀態圖片">
     </div>
 
     <script>
@@ -152,7 +152,7 @@
             guessInput.disabled = false;
             guessButton.disabled = false;
             newGameButton.style.display = 'none';
-            gameImage.src = 'images/wrong.jpg'; 
+            gameImage.src = ''; // 圖片來源設為空白
         }
 
         function checkGuess() {
