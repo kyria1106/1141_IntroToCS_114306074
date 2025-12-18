@@ -4,60 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Calculator</title>
-    <style>
-        
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 300px;
-            text-align: center;
-        }
-        h1 { margin-bottom: 20px; }
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 15px;
-            text-align: left;
-        }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 25px;
-            background-color: #8B4513;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #A0522D;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -78,66 +25,12 @@
         <option value="/">/</option>
     </select>
 
-    <button onclick="calculate()">Add</button> <div id="result">Result = </div>
+    <button onclick="calculate()">Add</button>
+
+    <div id="result">Result = </div>
 </div>
 
-<script>
-    function add(a, b) {
-        return a + b;
-    }
-
-    function subtract(a, b) {
-        return a - b;
-    }
-
-    function multiply(a, b) {
-        return a * b;
-    }
-
-    function divide(a, b) {
-        if (b === 0) {
-            return "Error (Div by 0)";
-        }
-        return a / b;
-    }
-
-    function calculate() {
-        
-        var num1 = parseFloat(document.getElementById("num1").value);
-        var num2 = parseFloat(document.getElementById("num2").value);
-        var operator = document.getElementById("operator").value;
-        var resultDisplay = document.getElementById("result");
-        
-        var finalResult = 0;
-
-
-        if (isNaN(num1) || isNaN(num2)) {
-            resultDisplay.innerText = "Please enter valid numbers";
-            return;
-        }
-
-        switch (operator) {
-            case "+":
-                finalResult = add(num1, num2);
-                break;
-            case "-":
-                finalResult = subtract(num1, num2);
-                break;
-            case "*":
-                finalResult = multiply(num1, num2);
-                break;
-            case "/":
-                finalResult = divide(num1, num2);
-                break;
-        }
-
-        if (typeof finalResult === "number") {
-            resultDisplay.innerText = "Result = " + finalResult.toFixed(2);
-        } else {
-            resultDisplay.innerText = finalResult;
-        }
-    }
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
